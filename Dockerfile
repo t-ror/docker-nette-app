@@ -36,6 +36,9 @@ COPY /config/nginx.conf /etc/nginx/nginx.conf
 # Copy Supervisor configuration file
 COPY /config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Set timezone in PHP
+RUN echo "date.timezone=Europe/Prague" > /usr/local/etc/php/conf.d/timezone.ini
+
 # Set working directory
 WORKDIR /var/www
 
